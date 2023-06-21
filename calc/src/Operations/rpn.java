@@ -1,6 +1,5 @@
 package Operations;
 
-import java.io.*;
 import java.util.ArrayList;
 
 class rpn {
@@ -63,6 +62,14 @@ class rpn {
         ULO.remove(2);
     }
 
+    void modulo() {
+        Double x;
+        x = Double.parseDouble(ULO.get(0)) % Double.parseDouble(ULO.get(1));
+        ULO.set(0, Double.toString(x));
+        ULO.remove(1);
+        ULO.remove(2);
+    }
+
     /**
      * @brief begins solving the equation.
      */
@@ -79,6 +86,8 @@ class rpn {
                 mult();
             } else if (z == "/" && i > 1) {
                 divide();
+            } else if (z == "%" && i > 1) {
+                modulo();
             }
         }
     }
