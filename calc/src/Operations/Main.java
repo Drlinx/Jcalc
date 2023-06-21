@@ -1,11 +1,8 @@
 package Operations;
 
-//package com.graphics.swing;
-//importing required packages for graphics
 import java.awt.*;
 import javax.swing.JFrame;
 
-//extending Canvas class into our own class
 public class Main extends Canvas {
     private static final long serialVersionUID = 1L;
 
