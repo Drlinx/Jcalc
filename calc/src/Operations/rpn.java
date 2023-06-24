@@ -5,69 +5,61 @@ import java.util.ArrayList;
 class rpn {
     String Ump;
     ArrayList<String> ULO = new ArrayList<String>();
-    ArrayList<String> ops = new ArrayList<String>();
 
     rpn() {
-        initops();
-    }
 
-    void initops() {
-        ops.add("+");
-        ops.add("-");
-        ops.add("*");
-        ops.add("/");
     }
 
     /**
      * @brief adds two elements
      */
-    void add() {
+    void add(int z) {
         Double x;
-        x = Double.parseDouble(ULO.get(0)) + Double.parseDouble(ULO.get(1));
-        ULO.set(0, Double.toString(x));
-        ULO.remove(1);
-        ULO.remove(2);
+        x = Double.parseDouble(ULO.get(z)) + Double.parseDouble(ULO.get(z + 1));
+        ULO.set(z, Double.toString(x));
+        ULO.remove(z + 1);
+        ULO.remove(z + 1);
     }
 
     /**
      * @brief subtracts two elements
      */
-    void subtract() {
+    void subtract(int z) {
         Double x;
-        x = Double.parseDouble(ULO.get(0)) - Double.parseDouble(ULO.get(1));
-        ULO.set(0, Double.toString(x));
-        ULO.remove(1);
-        ULO.remove(2);
+        x = Double.parseDouble(ULO.get(z)) - Double.parseDouble(ULO.get(z + 1));
+        ULO.set(z, Double.toString(x));
+        ULO.remove(z + 1);
+        ULO.remove(z + 1);
     }
 
     /**
      * @brief multiplies two elements
      */
-    void mult() {
+    void mult(int z) {
         Double x;
-        x = Double.parseDouble(ULO.get(0)) * Double.parseDouble(ULO.get(1));
-        ULO.set(0, Double.toString(x));
-        ULO.remove(1);
-        ULO.remove(2);
+        x = Double.parseDouble(ULO.get(z)) * Double.parseDouble(ULO.get(z + 1));
+        ULO.set(z, Double.toString(x));
+        ULO.remove(z + 1);
+        ULO.remove(z + 1);
     }
 
     /**
      * @brief the divide operation.
      */
-    void divide() {
+    void divide(int z) {
         Double x;
-        x = Double.parseDouble(ULO.get(0)) / Double.parseDouble(ULO.get(1));
-        ULO.set(0, Double.toString(x));
-        ULO.remove(1);
-        ULO.remove(2);
+        x = Double.parseDouble(ULO.get(z)) / Double.parseDouble(ULO.get(z + 1));
+        ULO.set(z, Double.toString(x));
+        ULO.remove(z + 1);
+        ULO.remove(z + 1);
     }
 
-    void modulo() {
+    void modulo(int z) {
         Double x;
-        x = Double.parseDouble(ULO.get(0)) % Double.parseDouble(ULO.get(1));
-        ULO.set(0, Double.toString(x));
-        ULO.remove(1);
-        ULO.remove(2);
+        x = Double.parseDouble(ULO.get(z)) % Double.parseDouble(ULO.get(z + 1));
+        ULO.set(z, Double.toString(x));
+        ULO.remove(z + 1);
+        ULO.remove(z + 1);
     }
 
     /**
@@ -79,15 +71,15 @@ class rpn {
         while (ULO.size() != 1 && i < ULO.size()) {
             z = ULO.get(i);
             if (z == "+" && i > 1) {
-                add();
+                add(i - 2);
             } else if (z == "-" && i > 1) {
-                subtract();
+                subtract(i - 2);
             } else if (z == "*" && i > 1) {
-                mult();
+                mult(i - 2);
             } else if (z == "/" && i > 1) {
-                divide();
+                divide(i - 2);
             } else if (z == "%" && i > 1) {
-                modulo();
+                modulo(i - 2);
             }
         }
     }

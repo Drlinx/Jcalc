@@ -15,10 +15,10 @@ public class Main extends Canvas {
     }
 
     public static void main(String[] args) {
-        Main graphicsDemo = new Main();
-        JFrame jFrame = new JFrame();
-        jFrame.add(graphicsDemo);
-        jFrame.setSize(300, 300);
-        jFrame.setVisible(true);
+        // Main graphicsDemo = new Main();
+        // JFrame jFrame = new JFrame();
+        // jFrame.add(graphicsDemo);
+        // jFrame.setSize(300, 300);
+        // jFrame.setVisible(true);
     }
 }
